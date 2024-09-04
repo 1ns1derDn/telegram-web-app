@@ -12,7 +12,7 @@ export const Main = () => {
 
 			try {
 				const response = await axios.post("https://telegram.mavinx.app/api/find", {
-					telegram_id: userId,
+					telegram_id: String(userId),
 				})
 
 				console.log("response", response)
