@@ -23,13 +23,17 @@ export const App = () => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const response = await axios.post("https://telegram.mavinx.app/api/find", {
-				telegram_id: tgUser?.id,
-			})
+			try {
+				const response = await axios.post("https://telegram.mavinx.app/api/find", {
+					telegram_id: tgUser?.id,
+				})
 
-			console.log("response", response)
+				console.log("response", response)
 
-			setUser(response.data)
+				setUser(response.data)
+			} catch (error) {
+				console.log(error)
+			}
 		}
 
 		fetchData()
