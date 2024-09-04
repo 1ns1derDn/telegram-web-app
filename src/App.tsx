@@ -16,16 +16,18 @@ const router = createBrowserRouter([
 ])
 
 export const App = () => {
-	const { tgUser, ready } = useTelegram()
+	const { userId } = useTelegram()
 	const [user, setUser] = useState()
 
-	console.log("tgUser", tgUser)
+	console.log("tgUser", userId)
 
 	useEffect(() => {
 		const fetchData = async () => {
+			if (!userId) return
+
 			try {
 				const response = await axios.post("https://telegram.mavinx.app/api/find", {
-					telegram_id: tgUser?.id,
+					telegram_id: userId,
 				})
 
 				console.log("response", response)
@@ -37,11 +39,7 @@ export const App = () => {
 		}
 
 		fetchData()
-	}, [tgUser?.id])
-
-	useEffect(() => {
-		ready()
-	}, [ready])
+	}, [userId])
 
 	console.log("user", user)
 
