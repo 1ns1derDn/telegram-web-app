@@ -41,6 +41,10 @@ export const App = () => {
 		fetchData()
 	}, [userId])
 
+	useEffect(() => {
+		window.Telegram.WebApp.ready()
+	}, [])
+
 	console.log("user", user)
 
 	return <RouterProvider router={router} />
