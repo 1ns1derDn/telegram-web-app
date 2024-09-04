@@ -1,8 +1,6 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import { Profile, Register } from "./components/templates"
-import { useTelegram } from "./hooks"
+import { Main, Register } from "./components/templates"
 
 const router = createBrowserRouter([
 	{
@@ -11,41 +9,14 @@ const router = createBrowserRouter([
 	},
 	{
 		path: "/",
-		element: <Profile />,
+		element: <Main />,
 	},
 ])
 
 export const App = () => {
-	const { userId } = useTelegram()
-	const [user, setUser] = useState()
-
-	console.log("tgUser", userId)
-
-	useEffect(() => {
-		const fetchData = async () => {
-			if (!userId) return
-
-			try {
-				const response = await axios.post("https://telegram.mavinx.app/api/find", {
-					telegram_id: userId,
-				})
-
-				console.log("response", response)
-
-				setUser(response.data)
-			} catch (error) {
-				console.log(error)
-			}
-		}
-
-		fetchData()
-	}, [userId])
-
 	useEffect(() => {
 		window.Telegram.WebApp.ready()
 	}, [])
-
-	console.log("user", user)
 
 	return <RouterProvider router={router} />
 }
