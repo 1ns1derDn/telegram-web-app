@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import { Main, Register } from "./components/templates"
+import { Profile, Register } from "./components/templates"
 
 const router = createBrowserRouter([
 	{
@@ -9,7 +9,7 @@ const router = createBrowserRouter([
 	},
 	{
 		path: "/",
-		element: <Main />,
+		element: <Profile />,
 	},
 ])
 
