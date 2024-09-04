@@ -9,6 +9,7 @@ import List from "@mui/material/List"
 import ListItem from "@mui/material/ListItem"
 import ListItemAvatar from "@mui/material/ListItemAvatar"
 import ListItemText from "@mui/material/ListItemText"
+import axios from "axios"
 import { useEffect, useState } from "react"
 import { LayoutMain } from "../../layouts"
 import styles from "./profile.module.css"
@@ -26,10 +27,20 @@ export const Profile = () => {
 
 	useEffect(() => {
 		const fetchUser = async () => {
-			const response = await fetch("https://193.124.117.56:9001/v1/PlayersContacts/+79031307447")
-			const data = await response.json()
-			setUser(data)
+			try {
+				const response = await axios.get(
+					"https://193.124.117.56:9001/v1/PlayersContacts/+79031307447"
+				)
+				console.log("response")
+
+				setUser(response.data)
+			} catch (error: unknown) {
+				if (axios.isAxiosError(error)) {
+					console.log(error.response?.data)
+				}
+			}
 		}
+
 		fetchUser()
 	}, [])
 
