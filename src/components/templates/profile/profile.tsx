@@ -28,12 +28,10 @@ export const Profile = () => {
 	useEffect(() => {
 		const fetchUser = async () => {
 			try {
-				const response = await axios.get(
-					"http://193.124.117.56:9000/v1/PlayersContacts/+79031307447"
-				)
-				console.log("response")
+				const response = await axios.get("https://telegram.mavinx.app/api/profile/+79031307447")
+				console.log(response)
 
-				setUser(response.data)
+				setUser(response.data.data)
 			} catch (error: unknown) {
 				if (axios.isAxiosError(error)) {
 					console.log(error.response?.data)
