@@ -29,7 +29,7 @@ export const Profile = () => {
 		const fetchUser = async () => {
 			try {
 				const response = await axios.get(
-					"https://193.124.117.56:9001/v1/PlayersContacts/+79031307447"
+					"http://193.124.117.56:9000/v1/PlayersContacts/+79031307447"
 				)
 				console.log("response")
 

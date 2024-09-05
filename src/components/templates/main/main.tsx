@@ -28,5 +28,5 @@ export const Main = () => {
 
 	console.log(phone)
 
-	return <>loading</>
+	return <>loadfwefwfng</>
 }
