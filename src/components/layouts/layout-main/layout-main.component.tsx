@@ -7,7 +7,7 @@ interface LayoutMainProps {
 export const LayoutMain = (props: LayoutMainProps) => {
 	const { children } = props
 	return (
-		<div>
+		<div style={{ padding: "0 15px" }}>
 			<TemporaryDrawer />
 			{children}
 		</div>
