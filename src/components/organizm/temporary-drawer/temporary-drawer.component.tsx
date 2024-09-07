@@ -1,7 +1,7 @@
+import AccountBoxOutlinedIcon from "@mui/icons-material/AccountBoxOutlined"
 import CloseIcon from "@mui/icons-material/Close"
-import MailIcon from "@mui/icons-material/Mail"
 import MenuIcon from "@mui/icons-material/Menu"
-import InboxIcon from "@mui/icons-material/MoveToInbox"
+import VerifiedOutlinedIcon from "@mui/icons-material/VerifiedOutlined"
 import { IconButton } from "@mui/material"
 import Box from "@mui/material/Box"
 import Drawer from "@mui/material/Drawer"
@@ -37,7 +37,9 @@ export const TemporaryDrawer = () => {
 				{["Profile", "Verification"].map((text, index) => (
 					<ListItem key={text} disablePadding>
 						<ListItemButton onClick={handleClick(text)}>
-							<ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+							<ListItemIcon>
+								{index % 2 === 0 ? <AccountBoxOutlinedIcon /> : <VerifiedOutlinedIcon />}
+							</ListItemIcon>
 							<ListItemText primary={text} />
 						</ListItemButton>
 					</ListItem>

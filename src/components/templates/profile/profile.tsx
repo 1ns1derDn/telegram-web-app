@@ -30,7 +30,7 @@ export const Profile = () => {
 								<CreditCardIcon />
 							</Avatar>
 						</ListItemAvatar>
-						<ListItemText primary='Статус' secondary={user.nameStatus} />
+						<ListItemText primary='Status' secondary={user.nameStatus} />
 					</ListItem>
 					<ListItem>
 						<ListItemAvatar>
@@ -40,7 +40,7 @@ export const Profile = () => {
 						</ListItemAvatar>
 						<ListItemText
 							primary='User'
-							secondary={`${user?.surname} ${user?.middlename} ${user?.forename}`}
+							secondary={`${user?.surname} ${user?.forename} ${user?.middlename} `}
 						/>
 					</ListItem>
 				</List>
