@@ -2,13 +2,17 @@ import { Box, CircularProgress } from "@mui/material"
 import { useContext, useEffect, useState } from "react"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { UserContext } from "./components/contexts/user.context"
-import { Profile, Register, Verification } from "./components/templates"
+import { NotPhone, Profile, Register, Verification } from "./components/templates"
 import { getUserByPhone, getUserPhone } from "./services"
 
 const router = createBrowserRouter([
 	{
 		path: "/",
 		element: <Profile />,
+	},
+	{
+		path: "/not-phone",
+		element: <NotPhone />,
 	},
 	{
 		path: "/register",
@@ -35,11 +39,12 @@ export const App = () => {
 			})
 
 			if (responseUserPhone?.message === "success") {
-				setDataValue({ phone: responseUserPhone.phone })
-			}
+				if (!responseUserPhone.phone) {
+					router.navigate("/not-phone")
+					return
+				}
 
-			if (responseUserPhone?.message === "error") {
-				setDataValue({ phone: "" })
+				setDataValue({ phone: responseUserPhone.phone })
 			}
 
 			if (!responseUserPhone?.phone) return
