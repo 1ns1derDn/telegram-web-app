@@ -23,7 +23,7 @@ export const Profile = () => {
 						sx={{ fontSize: "100px", display: "block", margin: "0 auto" }}
 					/>
 				</Container>
-				<List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
+				<List sx={{ width: "100%", maxWidth: 360 }}>
 					<ListItem>
 						<ListItemAvatar>
 							<Avatar>

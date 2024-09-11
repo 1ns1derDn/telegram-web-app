@@ -1,9 +1,17 @@
 import { Box, CircularProgress } from "@mui/material"
+import CssBaseline from "@mui/material/CssBaseline"
+import { createTheme, ThemeProvider } from "@mui/material/styles"
 import { useContext, useEffect, useState } from "react"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { UserContext } from "./components/contexts/user.context"
 import { NotPhone, Profile, Register, Verification } from "./components/templates"
 import { getUserByPhone, getUserPhone } from "./services"
+
+const darkTheme = createTheme({
+	palette: {
+		mode: "dark",
+	},
+})
 
 const router = createBrowserRouter([
 	{
@@ -85,7 +93,10 @@ export const App = () => {
 					<CircularProgress />
 				</Box>
 			) : (
-				<RouterProvider router={router} />
+				<ThemeProvider theme={darkTheme}>
+					<CssBaseline />
+					<RouterProvider router={router} />
+				</ThemeProvider>
 			)}
 		</>
 	)

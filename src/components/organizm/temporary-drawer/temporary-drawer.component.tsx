@@ -53,7 +53,9 @@ export const TemporaryDrawer = () => {
 			<IconButton
 				sx={{
 					marginLeft: "auto",
-					display: "block",
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
 				}}
 				onClick={toggleDrawer(true)}
 			>
